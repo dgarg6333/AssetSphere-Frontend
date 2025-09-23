@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Spinner } from 'flowbite-react';
 import { Link } from 'react-router-dom';
 import { FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
+import { API_BASE_URL } from '../utils/api';
 
 // The AssetCard component is now imported from its own file.
 // For this to work, make sure AssetCard.jsx is in the same folder.
@@ -26,7 +27,7 @@ export default function MyAssets() {
       try {
         setLoading(true);
         // Corrected API endpoint to match the provided curl command and backend code.
-        const res = await fetch(`/api/asset/myasset/${currentUser._id}`);
+        const res = await fetch(`${API_BASE_URL}/api/asset/myasset/${currentUser._id}`);
         const data = await res.json();
         
         if (res.ok) {

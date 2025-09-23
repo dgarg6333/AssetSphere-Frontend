@@ -1,6 +1,7 @@
 import { Alert, Label, Spinner, TextInput } from 'flowbite-react'; // Removed Button from import
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../utils/api';
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
@@ -20,7 +21,7 @@ export default function SignUp() {
     try {
       setLoading(true);
       setErrorMessage(null);
-      const res = await fetch('/api/auth/signup', {
+      const res = await fetch(`${API_BASE_URL}/api/auth/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
