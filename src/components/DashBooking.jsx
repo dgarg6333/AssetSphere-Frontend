@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Table, Spinner } from 'flowbite-react';
 import { HiOutlineExclamationCircle, HiCheckCircle, HiExclamationCircle } from 'react-icons/hi';
+import { API_BASE_URL } from '../utils/api';
+
 
 /**
  * A React component to display the current user's bookings.
@@ -97,7 +99,7 @@ export default function MyBookings() {
     
     try {
       // Corrected to send `bookingStatus` in the request body
-      const res = await fetch(`/api/booking/cancel/${bookingIdToCancel}`, {
+      const res = await fetch(`${API_BASE_URL}/api/booking/cancel/${bookingIdToCancel}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
