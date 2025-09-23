@@ -43,7 +43,7 @@ function BookingModal({ isOpen, onClose, assetName, assetId, theme }) {
     }
 
     try {
-      const res = await fetch(`/api/booking/${assetId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/booking/${assetId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
