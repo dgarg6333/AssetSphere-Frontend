@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import AssetCard from '../components/AssetCard';
 import { useSelector } from 'react-redux';
+import { API_BASE_URL } from '../utils/api';
 
 export default function Search() {
   const [sidebarData, setSidebarData] = useState({
@@ -131,7 +132,7 @@ export default function Search() {
     try {
       setLoading(true);
       const searchQuery = location.search || '';
-      const res = await fetch(`/api/asset${searchQuery}`);
+      const res = await fetch(`${API_BASE_URL}/api/asset${searchQuery}`);
       const data = await res.json();
       setAssets(data);
       setLoading(false);
