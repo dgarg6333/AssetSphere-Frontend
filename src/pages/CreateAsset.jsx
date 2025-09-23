@@ -5,6 +5,7 @@ import { app } from '../firebase';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate , useLocation } from 'react-router-dom';
+import { API_BASE_URL } from '../utils/api';
 
 export default function CreateAsset() {
   // State variables for form data, UI feedback, and loading states
@@ -293,7 +294,7 @@ export default function CreateAsset() {
         // No change needed for 'image' here as it's already a string in formData
       };
 
-      const res = await fetch('/api/asset', {
+      const res = await fetch(`${API_BASE_URL}/api/asset`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
