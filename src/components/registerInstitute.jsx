@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Modal, Label, TextInput } from 'flowbite-react';
+import { API_BASE_URL } from '../utils/api';
 
 export default function RegisterInstituteModal() {
   const [openModal, setOpenModal] = useState(false);
@@ -31,7 +32,7 @@ export default function RegisterInstituteModal() {
 
     try {
       // API call to the backend endpoint
-      const res = await fetch('/api/institute/', {
+     const res = await fetch(`${API_BASE_URL}/api/institute/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
