@@ -16,6 +16,8 @@ import {
 } from '../redux/user/userSlice';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import { Link, useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../utils/api';
+
 
 export default function DashProfile() {
   const { currentUser, error, loading } = useSelector(state => state.user);
@@ -141,7 +143,7 @@ export default function DashProfile() {
 
   const handleSignout = async () => {
     try {
-      const res = await fetch('/api/user/signout', {
+      const res = await fetch(`${API_BASE_URL}/api/user/signout`, {
         method: 'POST',
       });
       const data = await res.json();
