@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FaUsers, FaBuilding, FaTag, FaMapMarkerAlt, FaCalendarAlt, FaEnvelope , FaGlobe, FaLayerGroup } from 'react-icons/fa';
+import { API_BASE_URL } from '../utils/api';
 
 // Booking Modal Component
 function BookingModal({ isOpen, onClose, assetName, assetId, theme }) {
@@ -208,7 +209,7 @@ export default function AssetDetail() {
 
   const fetchAsset = async () => {
     try {
-      const res = await fetch(`/api/asset/${id}`);
+      const res = await fetch(`${API_BASE_URL}/api/asset/${id}`);
       const data = await res.json();
       if (!res.ok) {
         throw new Error(data.error || 'Failed to fetch asset');
