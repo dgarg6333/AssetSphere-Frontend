@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Modal, Label, TextInput } from 'flowbite-react';
 import { API_BASE_URL } from '../utils/api';
-import { API_BASE_URL } from '../utils/api';
 
 export default function RegisterInstituteModal() {
   const [openModal, setOpenModal] = useState(false);
