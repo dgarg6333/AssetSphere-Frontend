@@ -25,7 +25,7 @@ export default function Header() {
     }
   }, [location.search]);
 
-  const handleSignout = async () => {
+   const handleSignout = async () => {
     try {
       const res = await fetch(`${API_BASE_URL}/api/user/signout`, {
         method: 'POST',

@@ -26,7 +26,7 @@ export default function DashSidebar() {
       setTab(tabFromUrl);
     }
   }, [location.search]);
-  const handleSignout = async () => {
+ const handleSignout = async () => {
     try {
       const res = await fetch(`${API_BASE_URL}/api/user/signout`, {
         method: 'POST',

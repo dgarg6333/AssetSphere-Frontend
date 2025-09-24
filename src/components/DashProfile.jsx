@@ -100,7 +100,7 @@ export default function DashProfile() {
     }
     try {
       dispatch(updateStart());
-      const res = await fetch(`/api/user/update/${currentUser._id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/user/update/${currentUser._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -125,7 +125,7 @@ export default function DashProfile() {
     setShowModal(false);
     try {
       dispatch(deleteUserStart());
-      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/user/delete/${currentUser._id}`, {
         method: 'DELETE',
       });
       const data = await res.json();
@@ -169,7 +169,7 @@ export default function DashProfile() {
     }
 
     try {
-      const res = await fetch(`/api/institute/${currentUser.email}`);
+      const res = await fetch(`${API_BASE_URL}/api/institute/${currentUser.email}`);
       const data = await res.json();
 
       if (!res.ok) {
