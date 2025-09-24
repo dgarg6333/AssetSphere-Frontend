@@ -27,7 +27,7 @@ export default function MyAssets() {
       try {
         setLoading(true);
         // Corrected API endpoint to match the provided curl command and backend code.
-        const res = await fetch(`${API_BASE_URL}/api/asset/myasset/${currentUser._id}`);
+        const res = await fetch(`${API_BASE_URL}/api/asset/myasset/${currentUser._id}`, { credentials: 'include' });
         const data = await res.json();
         
         if (res.ok) {

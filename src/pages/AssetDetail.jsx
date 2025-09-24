@@ -48,6 +48,7 @@ function BookingModal({ isOpen, onClose, assetName, assetId, theme }) {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify({
           startDate,
           endDate,
@@ -209,7 +210,7 @@ export default function AssetDetail() {
 
   const fetchAsset = async () => {
     try {
-      const res = await fetch(`${API_BASE_URL}/api/asset/${id}`);
+      const res = await fetch(`${API_BASE_URL}/api/asset/${id}`, { credentials: 'include' });
       const data = await res.json();
       if (!res.ok) {
         throw new Error(data.error || 'Failed to fetch asset');

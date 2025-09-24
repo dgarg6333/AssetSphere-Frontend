@@ -299,6 +299,7 @@ export default function CreateAsset() {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify(dataToSend),
       });
       const data = await res.json();

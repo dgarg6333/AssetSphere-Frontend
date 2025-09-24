@@ -132,7 +132,7 @@ export default function Search() {
     try {
       setLoading(true);
       const searchQuery = location.search || '';
-      const res = await fetch(`${API_BASE_URL}/api/asset${searchQuery}`);
+      const res = await fetch(`${API_BASE_URL}/api/asset${searchQuery}`, { credentials: 'include' });
       const data = await res.json();
       setAssets(data);
       setLoading(false);

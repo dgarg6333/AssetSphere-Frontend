@@ -66,7 +66,7 @@ export default function MyBookings() {
 
       try {
         setLoading(true);
-        const res = await fetch(`${API_BASE_URL}/api/booking/${currentUser._id}`);
+        const res = await fetch(`${API_BASE_URL}/api/booking/${currentUser._id}`, { credentials: 'include' });
         const data = await res.json();
         
         if (res.ok) {
@@ -103,6 +103,7 @@ export default function MyBookings() {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify({ bookingStatus: 'CANCELLED' }), 
       });
 
